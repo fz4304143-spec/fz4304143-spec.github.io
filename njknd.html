@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PickMyStream 💥 | Find Your Perfect Cambridge Stream</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:radial-gradient(circle at top left,#0f172a,#020617);color:#fff;overflow-x:hidden}
+
+    header{padding:60px 20px;text-align:center;}
+    header h1{font-size:3rem;font-weight:700;background:linear-gradient(90deg,#a855f7,#06b6d4);-webkit-background-clip:text;color:transparent;text-transform:uppercase;letter-spacing:1px;}
+    header p{color:#9ca3af;font-size:1.1rem;margin-top:12px;}
+
+    nav{display:flex;justify-content:center;gap:16px;margin-top:30px;flex-wrap:wrap;}
+    nav a{background:#111827;color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:600;transition:0.3s;border:2px solid transparent;}
+    nav a:hover{border-color:#a855f7;transform:scale(1.05);}
+
+    section{max-width:1100px;margin:80px auto;padding:20px;}
+
+    .section-title{font-size:2.2rem;text-align:center;margin-bottom:30px;font-weight:700;background:linear-gradient(90deg,#06b6d4,#a855f7);-webkit-background-clip:text;color:transparent;text-transform:uppercase;}
+
+    .streams{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;}
+    .stream-card{background:#111827;padding:20px;border-radius:20px;border:2px solid transparent;transition:0.3s;}
+    .stream-card:hover{border-color:#a855f7;transform:translateY(-5px);}
+    .stream-card h3{color:#06b6d4;font-size:1.3rem;margin-bottom:10px;}
+    .stream-card p{color:#cbd5e1;font-size:0.95rem;}
+
+    .quiz{background:#111827;padding:30px;border-radius:20px;max-width:700px;margin:0 auto;text-align:center;}
+    label{display:block;margin:15px 0 8px;font-weight:600;}
+    select,input[type=range]{width:100%;padding:10px;border:none;border-radius:10px;background:#1e293b;color:#fff;font-size:1rem;}
+    button{margin-top:20px;background:linear-gradient(90deg,#a855f7,#06b6d4);color:#fff;border:none;padding:12px 25px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:0.3s;}
+    button:hover{opacity:0.85;transform:scale(1.05);}
+    .result{margin-top:20px;background:rgba(255,255,255,0.05);padding:15px;border-radius:12px;color:#cbd5e1;}
+
+    footer{text-align:center;padding:40px 20px;color:#9ca3af;font-size:0.9rem;background:#0f172a;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PickMyStream 💥</h1>
+    <p>Confused about what to choose after Class 9? Let’s vibe our way to your dream stream 🔥</p>
+    <nav>
+      <a href="#about">About Streams</a>
+      <a href="#quiz">Find Your Stream</a>
+      <a href="#scope">Scope</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">About Streams</h2>
+    <div class="streams">
+      <div class="stream-card">
+        <h3>Science 🧠</h3>
+        <p>Perfect for those who love experiments, logic, and solving real-world problems. Leads to careers in medicine, engineering, tech & research.</p>
+      </div>
+      <div class="stream-card">
+        <h3>Commerce 💼</h3>
+        <p>Business brains, this one’s for you. Learn about finance, management & economics — a path to entrepreneurship, banking & business studies.</p>
+      </div>
+      <div class="stream-card">
+        <h3>Humanities 🎨</h3>
+        <p>For creative, expressive souls. Explore history, psychology, sociology, art, and literature. Careers include law, media, design & education.</p>
+      </div>
+      <div class="stream-card">
+        <h3>Computer Studies 💻</h3>
+        <p>Tech-savvy legends go here. Covers coding, AI, software development & data science. Future = digital domination.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2 class="section-title">Find Your Stream 🔍</h2>
+    <div class="quiz">
+      <label for="level">What kind of student are you?</label>
+      <select id="level">
+        <option value="topper">Topper 😎</option>
+        <option value="average">Average 🫶</option>
+        <option value="backbencher">Backbencher 😴</option>
+      </select>
+
+      <label for="interest">How much do you enjoy studying?</label>
+      <input type="range" id="interest" min="0" max="10" value="5" />
+
+      <button onclick="suggestStream()">Show Me My Stream</button>
+      <div class="result" id="result"></div>
+    </div>
+  </section>
+
+  <section id="scope">
+    <h2 class="section-title">Scope in Pakistan & Abroad 🌍</h2>
+    <div class="streams">
+      <div class="stream-card">
+        <h3>Science 🧠</h3>
+        <p><b>Pakistan:</b> Medical, Engineering, Tech & Energy fields booming.<br><b>Abroad:</b> High demand in research, IT & health sectors.</p>
+      </div>
+      <div class="stream-card">
+        <h3>Commerce 💼</h3>
+        <p><b>Pakistan:</b> Business, banking & marketing have stable growth.<br><b>Abroad:</b> Global finance & e-commerce booming!</p>
+      </div>
+      <div class="stream-card">
+        <h3>Humanities 🎨</h3>
+        <p><b>Pakistan:</b> Law, media, journalism & education on the rise.<br><b>Abroad:</b> Strong in arts, psychology & creative industries.</p>
+      </div>
+      <div class="stream-card">
+        <h3>Computer Studies 💻</h3>
+        <p><b>Pakistan:</b> Tech startups, freelancing & IT exports exploding.<br><b>Abroad:</b> One of the highest-paid & in-demand fields.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 PickMyStream — Made for Gen Z students by students 💅
+  </footer>
+
+  <script>
+    function suggestStream(){
+      const level=document.getElementById('level').value;
+      const interest=document.getElementById('interest').value;
+      let suggestion="";
+      if(level==="topper" && interest>7){suggestion="Science or Computer Studies 💻🧠 — You’re made for complex stuff!"}
+      else if(level==="average" && interest>=5){suggestion="Commerce 💼 — You’ve got balance & business vibes!"}
+      else if(level==="backbencher" || interest<4){suggestion="Humanities 🎨 — Chill but creative route for you!"}
+      else{suggestion="Computer Studies 💻 — You’re tech-smart & flexible!"}
+      document.getElementById('result').innerText=suggestion;
+    }
+  </script>
+</body>
+</html>
